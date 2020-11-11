@@ -1,11 +1,11 @@
 <template lang="pug">
-  v-app
-    v-app-bar.d-flex.flex-row.justify-start(app color="primary" dark)
+  v-app(style="overflow-y:hidden;")
+    v-app-bar.d-flex.flex-row.justify-start(app color="main_background" dark)
       v-toolbar-title
         .d-flex.flex-row.align-center
           img(src="@/assets/logo.png", alt="adspend" style=" width:50px;")
           h1.ml-2(style="color:var(--v-accent-base);") memessy
-    v-main(style="background-color:var(--v-primary-base);")
+    v-main(style="background-color:var(--v-main_background-base);")
       search_bar
       search_result
 </template>
@@ -27,3 +27,7 @@ export default {
   }),
 };
 </script>
+
+<style lang="scss">
+  @import "@/scss/main.scss";
+</style>

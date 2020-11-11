@@ -1,7 +1,7 @@
 <template lang="pug">
-  v-container.d-flex.flex-row
-    v-text-field(v-model="search")
-    v-btn(@click="getMemesy()") Найти мем
+  v-container.mt-10.d-flex.flex-row.align-center
+    v-text-field(v-model="search" placeholder="Поиск...")
+    v-btn.test(@click="getMemesy()") Найти мем
 </template>
 
 <script>
@@ -10,6 +10,9 @@
     data: () => ({
       search: "",
     }),
+    mounted(){
+      this.getMemesy()
+    },
     methods:{
       getMemesy(){
         this.$store
