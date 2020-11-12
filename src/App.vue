@@ -6,20 +6,20 @@
           img(src="@/assets/logo.png", alt="adspend" style=" width:50px;")
           h1.ml-2(style="color:var(--v-accent-base);") memessy
     v-main(style="background-color:var(--v-main_background-base);")
-      search_bar
-      search_result
+      search-bar
+      search-result
 </template>
 
 <script>
-import search_bar from './components/search_bar';
-import search_result from './components/search_result';
+import searchBar from './components/SearchBar';
+import searchResult from './components/SearchResult';
 
 export default {
   name: 'App',
 
   components: {
-    search_bar,
-    search_result,
+    searchBar,
+    searchResult,
   },
 
   data: () => ({

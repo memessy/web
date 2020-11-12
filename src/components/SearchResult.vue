@@ -7,7 +7,7 @@
 
 <script>
   export default {
-    name: "search_result",
+    name: "search-result",
     data: ()=>({
 
     }),

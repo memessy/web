@@ -7,7 +7,7 @@
 
 <script>
   export default {
-    name: 'search_bar',
+    name: 'search-bar',
     data: () => ({
       search: "",
     }),
