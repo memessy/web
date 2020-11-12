@@ -1,7 +1,8 @@
 <template lang="pug">
-  v-container.mt-10.d-flex.flex-row.align-center
-    v-text-field(v-model="search" placeholder="Поиск...")
-    v-btn.test(@click="getMemesy()") Найти мем
+  v-container.mt-10.d-flex.flex-row.align-center.justify-center
+    div.search_result_wrapper
+      v-text-field(v-model="search" @keyup.enter="getMemessy()" placeholder="Поиск...")
+    v-btn.test(@click="getMemessy()" color="accent") Найти мем
 </template>
 
 <script>
@@ -11,13 +12,12 @@
       search: "",
     }),
     mounted(){
-      this.getMemesy()
+      this.getMemessy()
     },
     methods:{
-      getMemesy(){
+      getMemessy(){
         this.$store
           .dispatch("universalApi", {
-            name: "jsonapi/checksession",
             method: "GET",
             query: {
               'q': this.search
@@ -30,3 +30,10 @@
     },
   }
 </script>
+
+<style>
+  .search_result_wrapper{
+    width:60%;
+    margin-right: 20px;
+  }
+</style>
