@@ -14,10 +14,10 @@ export default new Vuex.Store({
     },
     mutations: {
         setResultMemessy(state,payload){
-            payload.map(item =>{
-                state.resultMemessy.push(item)
-            })
-            // state.resultMemessy = payload;
+            //payload.map(item =>{
+            //    state.resultMemessy.push(item)
+            //})
+            state.resultMemessy = payload;
         }
     },
     getters: {
