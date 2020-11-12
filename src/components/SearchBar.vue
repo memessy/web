@@ -24,7 +24,7 @@
             }
           })
           .then((res) =>{
-            this.$store.commit('setSearchResult',res);
+            this.$store.commit('setResultMemessy',res);
           });
       }
     },

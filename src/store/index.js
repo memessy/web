@@ -10,11 +10,14 @@ export default new Vuex.Store({
     // },
     state: {
         // gloabal vars
-        searchResult : []
+        resultMemessy : []
     },
     mutations: {
-        setSearchResult(state,payload){
-            state.searchResult = payload;
+        setResultMemessy(state,payload){
+            payload.map(item =>{
+                state.resultMemessy.push(item)
+            })
+            // state.resultMemessy = payload;
         }
     },
     getters: {
