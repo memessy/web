@@ -5,8 +5,7 @@
   "scripts": {
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "dev": "vue-cli-service serve --mode development",
-    "staging": "vue-cli-service serve --mode staging "
+    "dev": "vue-cli-service serve --mode development"
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
