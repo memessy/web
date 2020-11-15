@@ -2,9 +2,9 @@
   v-app(style="overflow-y:hidden;")
     v-app-bar.d-flex.flex-row.justify-start(app color="main_background" dark)
       v-toolbar-title
-        .d-flex.flex-row.align-center
+        .d-flex.flex-row.align-center(@click="$router.push('/')")
           img(src="@/assets/logo.png", alt="adspend" style=" width:50px;")
-          h1.ml-2.logo_text(style="color:var(--v-primary-base);" @click="router.push('/')") memessy
+          h1.ml-2.logo_text(style="color:var(--v-primary-base);") memessy
     v-main(style="background-color:var(--v-main_background-base);")
       router-view
 </template>
