@@ -9,7 +9,7 @@
       .mr-2.d-flex.flex-row.align-center
         v-btn(color="primary" outlined @click.stop="isAddingDialogOpened = true")
           v-icon mdi-plus
-          span Загрузить
+          span(v-if="!isMini") Загрузить
     v-main(style="background-color:var(--v-main_background-base);")
       router-view
     v-dialog(v-model="isAddingDialogOpened" width="500px")
@@ -37,6 +37,15 @@ export default {
     uploadedMemFormData : null,
     uploadedMemSrc: "",
   }),
+  computed: {
+    isMini(){
+      return this.$vuetify.breakpoint.name == "xs" ||
+      this.$vuetify.breakpoint.name == "sm" ||
+      this.$vuetify.breakpoint.name == "md"
+          ? true
+          : false;
+    }
+  },
   methods:{
     uploadMem () {
       if (this.uploadedMem) {
