@@ -25,20 +25,27 @@
     mounted(){
       this.getMemessy()
     },
+    watch:{
+      search:function(val){
+        if(val.length > 2 || val.length === 0){
+          this.getMemessy();
+        }
+      }
+    },
     methods:{
       getMemessy(){
-        this.$store
-          .dispatch("universalApi", {
-            endpoint: "memes/",
-            method: "GET",
-            query: {
-              'q': this.search
-            }
-          })
-          .then((res) =>{
-            this.$store.commit('setResultMemessy',res);
-          });
-      }
+          this.$store
+              .dispatch("universalApi", {
+                endpoint: "memes/",
+                method: "GET",
+                query: {
+                  'q': this.search
+                }
+              })
+              .then((res) =>{
+                this.$store.commit('setResultMemessy',res);
+              });
+      },
     },
   }
 </script>
