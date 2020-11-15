@@ -14,9 +14,6 @@ export default new Vuex.Store({
     },
     mutations: {
         setResultMemessy(state,payload){
-            //payload.map(item =>{
-            //    state.resultMemessy.push(item)
-            //})
             state.resultMemessy = payload;
         }
     },
@@ -35,7 +32,7 @@ export default new Vuex.Store({
             const response = await window.fetch(Url, {
                 // base url setted in plugin
                 method: req.method,
-                body: req.data ? JSON.stringify(req.data) : void 0
+                body: req.data ? req.data : void 0
             });
             if (!response.ok) {
                 const json = await response.json();
