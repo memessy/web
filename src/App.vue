@@ -12,30 +12,20 @@
           span(v-if="!isMini") Загрузить
     v-main(style="background-color:var(--v-main_background-base);")
       router-view
-    v-dialog(v-model="isAddingDialogOpened" width="500px")
-      v-card.pa-2
-        v-card-title
-          span Добавление мема
-        v-card-text
-          .d-flex.flex-row.justify-center
-            .file_box.empty_file_box(v-if="!uploadedMem")
-              span.empty_file_text Загрузите мем
-            .file_box(v-else)
-              v-img(:src="uploadedMemSrc")
-          v-file-input(v-model="uploadedMem" @change="uploadMem()")
-        v-card-actions
-          v-spacer
-          v-btn(color="primary" @click="addMem()" :disabled="!uploadedMem") Добавить
+    add-mem-dialog(:isAddingDialogOpened.sync="isAddingDialogOpened")
+
+
 </template>
 
 <script>
+import addMemDialog from './components/add-mem-dialog';
 export default {
   name: 'App',
+  components:{
+    addMemDialog
+  },
   data: () => ({
     isAddingDialogOpened: false,
-    uploadedMem: undefined,
-    uploadedMemFormData : null,
-    uploadedMemSrc: "",
   }),
   computed: {
     isMini(){
@@ -47,33 +37,6 @@ export default {
     }
   },
   methods:{
-    uploadMem () {
-      if (this.uploadedMem) {
-        const formData = new FormData();
-        formData.append('file', this.uploadedMem);
-        console.log(formData.get('file'))
-        this.uploadedMemFormData = formData;
-        const reader = new FileReader();
-        reader.addEventListener('load', function () {
-          this.uploadedMemSrc = reader.result;
-        }.bind(this), false);
-        reader.readAsDataURL(this.uploadedMem);
-      }
-    },
-    addMem(){
-      if(this.uploadedMemFormData){
-        this.$store.dispatch('universalApi',{
-          endpoint: "memes/",
-          method: "POST",
-          data: this.uploadedMemFormData
-        }).then(() =>{
-          this.isAddingDialogOpened = false;
-          this.uploadedMem = undefined;
-          this.uploadedMemFormData = null;
-          this.uploadedMemSrc = "";
-        })
-      }
-    }
   }
 };
 </script>
@@ -88,24 +51,4 @@ export default {
     width: 100%;
   }
 
-  .file_box{
-    width: 80%;
-    height: 300px;
-    margin: 30px 0 20px 0;
-  }
-
-  .empty_file_box{
-    background-color: rgba(60,63,65,0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .empty_file_text{
-      display: block;
-      text-align: center;
-      text-transform: uppercase;
-      font-size: 20px;
-      opacity: .5;
-    }
-  }
 </style>

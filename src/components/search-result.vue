@@ -1,9 +1,9 @@
 <template lang="pug">
   v-container
-    .d-flex.flex-col.justify-center.flex-wrap.justify-lg-start(v-if="$store.state.resultMemessy.length !== 0")
-      template(v-for="(mem , i) in $store.state.resultMemessy")
+    .d-flex.flex-col.justify-center.flex-wrap.flex-sm-row.align-sm-start.justify-lg-start(v-if="$store.state.Memessy.resultMemessy.length !== 0")
+      template(v-for="(mem , i) in $store.state.Memessy.resultMemessy")
         v-hover(v-slot="{ hover }")
-          v-card.mx-2.my-2( max-width="340px")
+          v-card.mx-2.my-2.d-flex.align-center( max-width="330px" height="330px")
             v-img(:src="mem.file_url")
             v-fade-transition
             v-overlay(v-if="hover" absolute color="#606060")

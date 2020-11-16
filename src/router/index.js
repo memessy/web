@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import MainView from '../views/main-view.vue'
+import CommonView from '../views/common-view.vue'
 import UserView from '../views/user-view.vue'
 
 Vue.use(VueRouter)
@@ -8,7 +8,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    component: MainView
+    component: CommonView
   },
   {
     path: '/my-memessy',

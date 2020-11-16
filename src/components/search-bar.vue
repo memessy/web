@@ -34,17 +34,7 @@
     },
     methods:{
       getMemessy(){
-          this.$store
-              .dispatch("universalApi", {
-                endpoint: "memes/",
-                method: "GET",
-                query: {
-                  'q': this.search
-                }
-              })
-              .then((res) =>{
-                this.$store.commit('setResultMemessy',res);
-              });
+          this.$store.dispatch("Memessy/reloadMemessy", this.search);
       },
     },
   }

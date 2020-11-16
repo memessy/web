@@ -1,21 +1,19 @@
 import Vue from "vue";
 import Vuex from "vuex";
-// import module from "./module";
+import memessy from "./memessy";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
     namespaced: true,
-    // modules: {
-    //     Module: module,
-    // },
+    modules: {
+        Memessy: memessy,
+    },
     state: {
         // gloabal vars
-        resultMemessy : []
+
     },
     mutations: {
-        setResultMemessy(state,payload){
-            state.resultMemessy = payload;
-        }
+
     },
     getters: {
 
