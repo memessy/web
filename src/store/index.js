@@ -21,7 +21,8 @@ export default new Vuex.Store({
     actions: {
         async universalApi(_, req) {
             // return promise with server respsonse
-            let Url = new URL(Vue.prototype.$baseURL + req.endpoint);
+            let Url = req.id  ?  new URL(Vue.prototype.$baseURL + req.endpoint + req.id) :
+                                 new URL(Vue.prototype.$baseURL + req.endpoint);
             if (req.query) {
                 Object.keys(req.query).forEach(key =>
                     Url.searchParams.append(key, req.query[key])
